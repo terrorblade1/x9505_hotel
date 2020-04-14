@@ -1,0 +1,49 @@
+#配置端口号:
+server:
+  port: 8090
+
+#配置数据源及前后缀:
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/hotel?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+
+#配置日志的输出:
+logging:
+  level:
+    org:
+    #日志信息的输出:
+      springframework: DEBUG,error
+    com:
+      java:
+        mapper: DEBUG
+
+#配置mybatis:
+mybatis:
+  #扫描加载到的所有mapper.xml文件:
+  mapper-locations: classpath:mapper/*.xml
+  #给实体封装类配置别名,默认就是类名:
+  type-aliases-package: com.java.pojo
+
+#配置pagehelper分页插件:
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+#配置虚拟路径
+yk:
+  #文件在磁盘中的真实路径
+  imagesPath: file:E:\img\
+
+
+
